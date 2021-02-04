@@ -24,7 +24,7 @@ Git da Bia e do Pertence
 
 5. Aprender os concitos do SOLID.
 
-#Projeto
+# Projeto
 
 ###  Sistema Desenvolvido:
 Será desenvolvido um sistema em JAVA para cadastrar músicas e álbuns com as seguintes funcionalidades:
