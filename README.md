@@ -1,7 +1,11 @@
 # Mentoria DTI
-
 Git da Bia e do Pertence 
-
+<p align="left">
+<img src="https://img.shields.io/badge/JAVA-red?labelColor=red&logo=java&logoColor=white">
+<img src="https://img.shields.io/badge/-API-grey">
+<img src="https://img.shields.io/badge/-Mongo DB-yellow"> 
+<img src="https://img.shields.io/badge/-Spring Boot-green">
+</p>
 ### Objetivos: 
 1. Melhorar as soft skills para o desenvolvimento de software.
 
@@ -35,4 +39,6 @@ Será desenvolvido um sistema em JAVA para cadastrar músicas e álbuns com as s
         * Gerar playlist
     
 ###  Arquitetura Desejada - MVC:
+
+![](images/mvc.png)
 
