@@ -6,7 +6,9 @@ Git da Bia e do Pertence
 <img src="https://img.shields.io/badge/-Mongo DB-yellow"> 
 <img src="https://img.shields.io/badge/-Spring Boot-green">
 </p>
+
 ### Objetivos: 
+
 1. Melhorar as soft skills para o desenvolvimento de software.
 
 2. Aprender alguns conceitos bases da orientação a objetos, como:
