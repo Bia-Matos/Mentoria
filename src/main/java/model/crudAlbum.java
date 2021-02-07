@@ -4,35 +4,50 @@ import entities.Album;
 import entities.Music;
 import org.javatuples.Pair;
 
-import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class crudAlbum {
-    public static void main(String[] args) {
+    public static void main(String[] args) {}
 
-        Pair<ArrayList, ArrayList> pair =
-                new Pair<ArrayList, ArrayList>(createAlbum(), addMusic());
+    public static void createAlbum() {
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+
+        String title = "Metallica: Black Album";
+        int year = 1991;
+        String band = "Metallica";
+        var album = Album.addAlbum(title, year, band);
+
+        String music = "Nothing Else Matters";
+        Double time = 6.29;
+        var musicData = Music.addMusic(music, time, true);
+
+        var pair = new Pair<>(album, musicData);
 
         System.out.println(pair);
     }
 
-    public static ArrayList createAlbum() {
-        Album album = new Album("Metallica: Black Album", 1991, "Metallica");
+    public static void albumData() {
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("---------------------------------");
+        while(true) {
+            System.out.println("Digite um numero aleatorio");
+            int x = sc.nextInt();
+            System.out.printf("O numero digitado foi %d \n", x);
 
-        ArrayList<Album> albumList = new ArrayList<>();
-        albumList.add(album);
-        return albumList;
+            System.out.println("Deseja sair ? [s] [n]");
+            String exit = sc.next();
+            System.out.printf("Opção selecionada foi %s \n", exit);
+
+            if(exit.equals("s")) {
+                System.out.println("break");
+                break;
+            } else {
+                System.out.println("not break");
+            }
+        }
     }
-
-    public static ArrayList addMusic() {
-        Music music1 = new Music("Enter Sandman", 5.31, true);
-        Music music2 = new Music("The Unforgiven", 6.27, true);
-        Music music3 = new Music("Nothing Else Matters", 6.29, true);
-
-        ArrayList<Music> music = new ArrayList<>();
-        music.add(music1);
-        music.add(music2);
-        music.add(music3);
-        return music;
-    }
-
+    
 }

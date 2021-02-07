@@ -1,13 +1,15 @@
 package entities;
 
+import java.util.ArrayList;
+
 public class Music {
 
-    String nome;
+    String name;
     Double time;
     Boolean favorite;
 
-    public Music(String nome, Double time, Boolean favorite) {
-        this.nome = nome;
+    public Music(String name, Double time, Boolean favorite) {
+        this.name = name;
         this.time = time;
         this.favorite = favorite;
     }
@@ -15,6 +17,13 @@ public class Music {
     @Override
     // function Object Class
     public String toString() {
-        return "\n music: " + this.nome + ", " + "time: " + this.time + ", " + "favorite: " + this.favorite + "," + "\n";
+        return "\n music: " + this.name + ", " + "time: " + this.time + ", " + "favorite: " + this.favorite + "," + "\n";
+    }
+
+    public static ArrayList addMusic(String name, Double time, Boolean favorite) {
+        Music music = new Music(name, time, favorite);
+        ArrayList<Music> newMusic = new ArrayList<>();
+        newMusic.add(music);
+        return newMusic;
     }
 }
