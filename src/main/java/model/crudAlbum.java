@@ -4,50 +4,64 @@ import entities.Album;
 import entities.Music;
 import org.javatuples.Pair;
 
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class crudAlbum {
-    public static void main(String[] args) {}
-
-    public static void createAlbum() {
+    public static void main(String[] args) {
         Locale.setDefault(Locale.US);
-        Scanner sc = new Scanner(System.in);
 
-        String title = "Metallica: Black Album";
-        int year = 1991;
-        String band = "Metallica";
-        var album = Album.addAlbum(title, year, band);
-
-        String music = "Nothing Else Matters";
-        Double time = 6.29;
-        var musicData = Music.addMusic(music, time, true);
-
-        var pair = new Pair<>(album, musicData);
-
+        var pair = new Pair<>(createAlbum(), addMusic());
         System.out.println(pair);
+
     }
 
-    public static void albumData() {
+    public static ArrayList createAlbum() {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
+
+        System.out.println("Digite o titulo do album: ");
+        String title = sc.nextLine();
+
+        System.out.println("Digite o nome da banda: ");
+        String band = sc.nextLine();
+
+        System.out.println("Digite o ano de criação do album: ");
+        int year = sc.nextInt();
+
+        return Album.addAlbum(title, year, band);
+    }
+
+    public static ArrayList<Music> addMusic() {
+
+        ArrayList<Music> newMusic = new ArrayList<>();
         System.out.println("---------------------------------");
+        System.out.println("Agora adicione musicas ao seu album ...");
+
         while(true) {
-            System.out.println("Digite um numero aleatorio");
-            int x = sc.nextInt();
-            System.out.printf("O numero digitado foi %d \n", x);
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Digite o nome da música: ");
+            String name = sc.nextLine();
 
-            System.out.println("Deseja sair ? [s] [n]");
+            System.out.println("Digite o tempo de duração da música [min.seg]: ");
+            Double time = sc.nextDouble();;
+
+            System.out.println("Deseja adicionar essa musica como favorita? [true or false]: ");
+            Boolean favorite = sc.nextBoolean();
+
+            Music music = new Music(name, time, favorite);
+            newMusic.add(music);
+
+            System.out.println("Deseja adicionar mais musicas? [s] [n]");
             String exit = sc.next();
-            System.out.printf("Opção selecionada foi %s \n", exit);
 
-            if(exit.equals("s")) {
+            if(exit.equals("n")) {
                 System.out.println("break");
                 break;
-            } else {
-                System.out.println("not break");
             }
         }
+        return newMusic;
     }
-    
 }
+
